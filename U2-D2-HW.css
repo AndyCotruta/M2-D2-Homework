@@ -1,0 +1,71 @@
+/* 1. `Write a selector to target the h1 in the first “hero” section` */
+
+.col-md-6 h1 {
+  color: red;
+}
+
+/* 2.Write a selector to target every children of the navbar */
+
+.nav * {
+  color: red;
+}
+
+/* 3.Write a selector to target the “continue reading…” inside the jumbotron */
+
+.jumbotron a {
+  color: red;
+}
+
+/* 4.Write a selector to target the first blogpost */
+
+.blog-post:first-of-type {
+  background-color: bisque;
+}
+
+/* 5.Write a selector to target the first blogpost <hr> and turn it red */
+
+.blog-post hr:first-of-type {
+  background-color: red;
+}
+
+/* 6.Write a selector to target the “even” links in the navbar */
+
+.nav *:nth-child(even) {
+  color: blue;
+}
+
+/* 7.Write a selector to target all the <li> into the first ordered-list in the sidebar */
+
+.mb-0 li {
+  background-color: aqua;
+}
+
+/* 8.Write a selector to target the second blog-post author */
+
+.blog-post:nth-child(3) .blog-post-meta a {
+  color: red;
+}
+
+/* 9.Write a selector to target the second <li> in the third blog-post unordered-list */
+
+.blog-post:nth-child(4) li:nth-child(2) {
+  color: aqua;
+}
+
+/* 10.Write a selector to target the “back to top” link you can find at the bottom-right corner */
+
+.mr-3 {
+  background-color: blueviolet;
+}
+
+/* 11.Write a selector to target the “Newer” button at the bottom */
+
+.btn-outline-secondary:nth-child(2) {
+  margin-left: 200px;
+}
+
+/* 12.Write a selector to target the footer’s second link */
+
+.blog-footer .text-center a:nth-child(2) {
+  color: red;
+}
