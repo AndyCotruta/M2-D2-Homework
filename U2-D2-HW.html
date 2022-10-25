@@ -412,70 +412,80 @@
     <script>
       /* JS Exercises should go here */
       // Write a JavaScript functionality to add a new link into the navbar
-      const addNewLink = function () {
+      const addNewLink = () => {
         const navBar = document.querySelector(".nav");
         console.log(navBar);
-        const newLink = document.createElement("span");
+        const newLink = document.createElement("a");
         newLink.innerText = "Fresh Link";
+        newLink.setAttribute("href", "https://www.google.com");
         navBar.appendChild(newLink);
       };
 
-      createNew = () => {
-        let navBar = document.querySelector(".nav");
-        let newLink = document.createElement("span");
-        newLink.innerText = "New Link";
-        navBar.appendChild(newLink);
-      };
-
-      createNew();
       // Write a JavaScript functionality to change the color of the main heading title
-      const h1 = document.querySelector("h1");
-      h1.style.color = "blue";
-      // Write a JavaScript functionality to change the background of the jumbotron
+      const changeH1Color = () => {
+        const h1 = document.querySelector("h1");
+        h1.style.color = "blue";
+      };
 
-      const jumbotron = document.querySelector(".jumbotron");
-      jumbotron.style.background = "green";
+      // Write a JavaScript functionality to change the background of the jumbotron
+      const changeJumbotronBackground = () => {
+        const jumbotron = document.querySelector(".jumbotron");
+        jumbotron.style.background = "green";
+      };
 
       // Write a JavaScript functionality to remove the “twitter” link under the “Elsewhere” section in the aside element. It should happen when the page loads, automatically
-      const list = document.querySelectorAll(".p-4 ol :nth-child(2)");
-      console.log(list);
-      const twitter = list[1];
-      twitter.style.display = "none";
+
+      const removeTwitter = () => {
+        const list = document.querySelectorAll(".p-4 ol :nth-child(2)");
+        const twitter = list[1];
+        twitter.style.display = "none";
+      };
+
       // Write a JavaScript functionality to remove the first 50 characters in the first paragraph for every blog post
 
       const paragraphs = document.querySelectorAll(".blog-post :nth-child(3)");
-      console.log(paragraphs);
-      for (let i = 0; i < paragraphs.length; i++) {
-        paragraphs[i].innerText.substring(50);
-      }
+
+      const removeCharacters = () => {
+        for (let i = 0; i < paragraphs.length; i++) {
+          if (paragraphs[i].localName === "p") {
+            const strings = paragraphs[i].innerText;
+            const fiftyCharacters = strings.substring(50);
+            paragraphs[i].innerText = fiftyCharacters;
+            // paragraphs[i].innerText = strings.slice(50);
+          }
+        }
+      };
 
       // Write a JavaScript functionality to add a new Blog Post (div with title and text)
 
-      const blogMain = document.querySelectorAll(".blog-main");
-      console.log(blogMain);
-      const newBlogPost = document.createElement("div");
-      const title = document.createElement("h2");
-      title.innerText = "New Blog Post";
-      const text = document.createElement("p");
-      text.innerText = "This is a new blog post";
-      newBlogPost.appendChild(title);
-      newBlogPost.appendChild(text);
+      const addNewBlogPost = () => {
+        const container = document.querySelectorAll(".blog-post");
+        const newBlogPost = document.createElement("div");
+        newBlogPost.classList.add("blog-post");
+        const title = document.createElement("h2");
+        title.classList.add("blog-post-title");
+        title.innerText = "New Blog Title";
+        const text = document.createElement("p");
+        text.classList.add("blog-post-meta");
+        text.innerText = "This is a new blog post";
+        container[container.length - 1].appendChild(newBlogPost);
+        newBlogPost.appendChild(title);
+        newBlogPost.appendChild(text);
+      };
+
       //   blogMain.appendChild(newBlogPost);
 
       // Write a JavaScript functionality to remove the last Blog Post when the user clicks on the "Older" button
 
-      const button = document.querySelectorAll(".btn-outline-primary");
-      const element = document.querySelector(".blog-post-meta");
-      console.log(element);
-      console.log(button);
+      const button = document.querySelector(".btn.btn-outline-primary");
       button.addEventListener("click", () => {
-        element.remove();
+        const element = document.querySelectorAll(".blog-post");
+        element[element.length - 1].remove();
       });
 
       // Write a JavaScript functionality that will create an alert with the name of the author every time the user hovers the mouse on an author's name
 
-      const name = document.querySelector(".blog-post-meta a");
-      console.log(name);
+      const name = document.querySelectorAll(".blog-post-meta a");
       for (let i = 0; i < name.length; i++) {
         name[i].addEventListener("mouseover", () => {
           alert(name[i].innerText);
@@ -483,6 +493,15 @@
       }
 
       // EXTRA Write a JavaScript functionality that will remove the corresponding parent card from the DOM, upon clicking on their “Continue reading” link
+
+      const aTagsArray = document.querySelectorAll(".stretched-link");
+      for (let i = 0; i < aTagsArray.length; i++) {
+        aTagsArray[i].addEventListener("click", () => {
+          const elementToBeRemoved = document.querySelectorAll(".mb-auto");
+          console.log(elementToBeRemoved);
+          elementToBeRemoved[i].remove();
+        });
+      }
     </script>
   </body>
 </html>
