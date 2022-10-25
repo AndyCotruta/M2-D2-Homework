@@ -413,12 +413,21 @@
       /* JS Exercises should go here */
       // Write a JavaScript functionality to add a new link into the navbar
       const addNewLink = function () {
-        const navBar = document.querySelectorAll("nav");
+        const navBar = document.querySelector(".nav");
         console.log(navBar);
         const newLink = document.createElement("span");
-        newLink.innerText = "New link";
+        newLink.innerText = "Fresh Link";
         navBar.appendChild(newLink);
       };
+
+      createNew = () => {
+        let navBar = document.querySelector(".nav");
+        let newLink = document.createElement("span");
+        newLink.innerText = "New Link";
+        navBar.appendChild(newLink);
+      };
+
+      createNew();
       // Write a JavaScript functionality to change the color of the main heading title
       const h1 = document.querySelector("h1");
       h1.style.color = "blue";
@@ -456,7 +465,7 @@
       // Write a JavaScript functionality to remove the last Blog Post when the user clicks on the "Older" button
 
       const button = document.querySelectorAll(".btn-outline-primary");
-      const element = document.querySelector(".blog-main :last-child");
+      const element = document.querySelector(".blog-post-meta");
       console.log(element);
       console.log(button);
       button.addEventListener("click", () => {
@@ -465,7 +474,7 @@
 
       // Write a JavaScript functionality that will create an alert with the name of the author every time the user hovers the mouse on an author's name
 
-      const name = document.querySelectorAll(".blog-post-meta a");
+      const name = document.querySelector(".blog-post-meta a");
       console.log(name);
       for (let i = 0; i < name.length; i++) {
         name[i].addEventListener("mouseover", () => {
